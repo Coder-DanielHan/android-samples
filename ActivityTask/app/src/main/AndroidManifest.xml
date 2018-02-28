@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".StandardActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -18,15 +18,23 @@
         </activity>
 
         <activity
+            android:name=".StandardActivity"
+            android:launchMode="standard"
+            android:taskAffinity="github.danielhan.sample.activitytask.standard" />
+
+        <activity
             android:name=".SingleTopActivity"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:taskAffinity="github.danielhan.sample.activitytask.singletop" />
 
         <activity
             android:name=".SingleTaskActivity"
             android:launchMode="singleTask" />
 
-        <activity android:name=".SingleInstanceActivity"
-            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".SingleInstanceActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity="github.danielhan.sample.activitytask.singleinstance" />
     </application>
 
 </manifest>
