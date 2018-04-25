@@ -1,5 +1,6 @@
 package com.danielhan.javareflection;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -24,7 +25,11 @@ public class Hello {
 //        getSuperClass(demo);
 //        getConstructors(demo);
 //        getMethods(demo);
-        getFields(demo);
+//        getFields(demo);
+//        revokeMethod(demo);
+//        setAttribute(demo);
+//        getArray();
+        changeArraySize(15);
     }
 
     private static void getInstanceByDefaultConstructor(Class<?> demo) {
@@ -131,6 +136,50 @@ public class Hello {
             Class<?> type = field.getType();
             System.out.print(type.getName() + " ");
             System.out.println(field.getName() + ";");
+        }
+    }
+
+    private static void revokeMethod(Class<?> demo) {
+        try {
+            Method sayChina = demo.getMethod("sayChina");
+            sayChina.invoke(demo.newInstance());
+            Method sayHello = demo.getMethod("sayHello", String.class, int.class);
+            sayHello.invoke(demo.newInstance(), "DanielHan", 29);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void setAttribute(Class<?> demo) {
+        try {
+            Field sex = demo.getDeclaredField("sex");
+            Object o = demo.newInstance();
+            sex.setAccessible(true);
+            sex.set(o, "你好");
+            System.out.println(sex.get(o));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void getArray() {
+        int[] temp = {1, 2, 3, 4, 5};
+        Class<?> demo = temp.getClass().getComponentType();
+        System.out.println("数组类型： " + demo.getName());
+        System.out.println("数组长度  " + Array.getLength(temp));
+        System.out.println("数组的第一个元素: " + Array.get(temp, 0));
+        Array.set(temp, 0, 100);
+        System.out.println("修改之后数组第一个元素为： " + Array.get(temp, 0));
+    }
+
+    private static void changeArraySize(int newSize) {
+        int[] temp = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        Class<?> componentType = temp.getClass().getComponentType();
+        Object newarr = Array.newInstance(componentType, newSize);
+        System.arraycopy(temp, 0, newarr, 0, Array.getLength(temp));
+        System.out.println("数组长度:" + Array.getLength(newarr));
+        for (int i = 0; i < Array.getLength(newarr); i++) {
+            System.out.print(Array.get(newarr, i) + " ");
         }
     }
 }

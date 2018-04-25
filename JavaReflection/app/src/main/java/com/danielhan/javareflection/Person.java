@@ -4,7 +4,7 @@ package com.danielhan.javareflection;
  * @author DanielHan
  * @date 2018/4/24
  */
-public class Person implements China {
+public class Person<T> implements China {
     public Person() {
 
     }
