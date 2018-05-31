@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateNotification();
+                createNotification(MainActivity.this);
             }
         });
     }
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 //                // TODO: 2018/5/14 震动没有循环
 //                .setVibrate(new long[]{0, 1000, 1000, 100})
 //                .setLights(context.getResources().getColor(R.color.colorAccent), 1000, 1000)
-                .setDefaults(NotificationCompat.DEFAULT_ALL)
+                .setDefaults(Notification.DEFAULT_VIBRATE)
                 // TODO: 2018/5/16 max priority 并没有弹出横幅
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .build();
