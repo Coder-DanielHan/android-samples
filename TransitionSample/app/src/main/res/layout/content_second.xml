@@ -8,4 +8,46 @@
     tools:context=".SecondActivity"
     tools:showIn="@layout/activity_second">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button1"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button2"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button3"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button4"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button5"
+            android:textSize="20sp" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="button"
+            android:transitionName="btn" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
